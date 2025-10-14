@@ -33,6 +33,7 @@
       </div>
     </section>
     <foodieInstagram/>
+    <deliciousRecipe/>
   </main>
 </template>
 
@@ -41,6 +42,7 @@
 // import HomeSection from '@/components/HomeSection.vue';
 import simpleRecipe from '@/components/simpleRecipe.vue'
 import foodieInstagram from '@/components/foodieInstagram.vue'
+import deliciousRecipe from '@/components/deliciousRecipe.vue'
 import BreakfastBg from '../assets/Images/breakfastBackground.png'
 import Breakfast from '../assets/Images/Breakfast.png'
 import VeganBg from '../assets/Images/veganBackground.png'

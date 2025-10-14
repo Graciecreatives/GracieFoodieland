@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="relative">
-          <img :src="post.image" alt class="h-[300px] object-cover" />
+          <img :src="post.image" alt class="h-[300px] object-contain" />
           <span
             class="bg-[#4d4f50] text-white absolute px-3 py-1 rounded-full top-5 right-3"
           >{{ post.number }}</span>
