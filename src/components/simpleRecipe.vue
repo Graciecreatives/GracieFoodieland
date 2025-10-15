@@ -57,7 +57,7 @@
           <img
             src="../assets/Images/RecipeImages/Ads.png"
             alt="Advertisement"
-            class="rounded-lg w-full h-full object-cover sm:w-full md:w-full lg:w-full"
+            class="rounded-lg w-full h-full object-contain sm:w-full md:w-full lg:w-full"
           />
         </div>
       </template>
