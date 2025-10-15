@@ -1,16 +1,28 @@
 <template>
-  <section class="simpleRecipeSection px-5 py-5 md:px-10 md:py-10">
-    <h2 class="md:text-4xl font-[600] text-center mb-3">Simple and tasty recipes</h2>
+  <section class="simpleRecipeSection px-4 sm:px-6 md:px-10 py-8 md:py-12 lg:py-16">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-[600] text-center mb-3 sm:mb-5">
+      Simple and tasty recipes
+    </h2>
     <p
-      class="md:w-170 text-center mx-auto md:mb-10"
-    >Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim</p>
+      class="max-w-xl sm:max-w-2xl text-center mx-auto mb-6 sm:mb-8 md:mb-10 text-sm sm:text-base leading-relaxed"
+    >
+      Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim
+    </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
       <template v-for="(recipe, index) in Recipes" :key="recipe.id">
-        <div class="bg-[#E7F9FD] p-3 rounded-lg">
+        <!-- Recipe Card -->
+        <div class="bg-[#E7F9FD] p-3 sm:p-4 rounded-lg hover:shadow-md transition-shadow duration-300">
           <div class="relative">
-            <img :src="recipe.image" alt="" class="rounded-xl" />
-            <button @click="toggleLike(recipe)" class="absolute top-5 right-5">
+            <img
+              :src="recipe.image"
+              alt=""
+              class="rounded-xl w-full h-auto object-cover"
+            />
+            <button
+              @click="toggleLike(recipe)"
+              class="absolute top-3 right-3 sm:top-5 sm:right-5"
+            >
               <span v-if="recipe.liked">
                 <img src="../assets/Images/RecipeImages/heartlove.png" alt />
               </span>
@@ -19,16 +31,34 @@
               </span>
             </button>
           </div>
-          <h3 class="md:text-2xl text-xl font-[500] mt-3">{{ recipe.content }}</h3>
-          <div class="flex justify-between mt-5">
-            <span class="inline-flex items-center gap-2"><img src="../assets/Images/Timer.png" alt="" class="w-5">{{ recipe.time }}</span>
 
-            <span class="inline-flex items-center gap-2"><img src="../assets/Images/ForkKnife.png" alt="" class="w-5">{{ recipe.category }}</span>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-[500] mt-3 sm:mt-4">
+            {{ recipe.content }}
+          </h3>
+
+          <div class="flex justify-between items-center mt-4 sm:mt-5 text-sm sm:text-base">
+            <span class="inline-flex items-center gap-2">
+              <img src="../assets/Images/Timer.png" alt="" class="w-4 sm:w-5" />
+              {{ recipe.time }}
+            </span>
+
+            <span class="inline-flex items-center gap-2">
+              <img src="../assets/Images/ForkKnife.png" alt="" class="w-4 sm:w-5" />
+              {{ recipe.category }}
+            </span>
           </div>
         </div>
 
-        <div v-if="index === 4">
-          <img src="../assets//Images/RecipeImages/Ads.png" alt/>
+        <!-- Ads Card aligned within grid -->
+        <div
+          v-if="index === 4"
+          class="bg-transparent flex items-center justify-center"
+        >
+          <img
+            src="../assets/Images/RecipeImages/Ads.png"
+            alt="Advertisement"
+            class="rounded-lg w-full h-full object-cover sm:w-full md:w-full lg:w-full"
+          />
         </div>
       </template>
     </div>
@@ -43,11 +73,13 @@ import strawberryOat from "../assets/Images/RecipeImages/strawberryOat.png";
 import MayonnaiseSalad from "../assets/Images/RecipeImages/Mayonnaise Salad.png";
 import chickenMeatball from "../assets/Images/RecipeImages/chickenMeatball.png";
 import fruityPancake from "../assets/Images/RecipeImages/fruityPancake.png";
-import potChicken from '../assets/Images/RecipeImages/potChicken.png'
-import Noodles from '../assets/Images/RecipeImages/noodles.png'
+import potChicken from "../assets/Images/RecipeImages/potChicken.png";
+import Noodles from "../assets/Images/RecipeImages/noodles.png";
+
 const toggleLike = recipe => {
   recipe.liked = !recipe.liked;
 };
+
 const Recipes = ref([
   {
     id: 1,
@@ -57,7 +89,6 @@ const Recipes = ref([
     category: "Snack",
     liked: true
   },
-
   {
     id: 2,
     image: roastedSalmon,
@@ -66,7 +97,6 @@ const Recipes = ref([
     category: "Fish",
     liked: false
   },
-
   {
     id: 3,
     image: strawberryOat,
@@ -75,7 +105,6 @@ const Recipes = ref([
     category: "Breakfast",
     liked: false
   },
-
   {
     id: 4,
     image: MayonnaiseSalad,
@@ -84,7 +113,6 @@ const Recipes = ref([
     category: "Healthy",
     liked: false
   },
-
   {
     id: 5,
     image: chickenMeatball,
@@ -93,7 +121,6 @@ const Recipes = ref([
     category: "Meat",
     liked: false
   },
-
   {
     id: 6,
     image: fruityPancake,
@@ -102,8 +129,7 @@ const Recipes = ref([
     category: "Sweet",
     liked: false
   },
-
-   {
+  {
     id: 7,
     image: potChicken,
     content: "The Best Easy One Pot Chicken and Rice",
@@ -111,9 +137,7 @@ const Recipes = ref([
     category: "Snack",
     liked: false
   },
-
-
-   {
+  {
     id: 8,
     image: Noodles,
     content: "The Creamiest Creamy Chicken and Bacon Pasta",
@@ -125,4 +149,9 @@ const Recipes = ref([
 </script>
 
 <style scoped>
+@media (max-width: 480px) {
+  .simpleRecipeSection img {
+    max-height: 220px;
+  }
+}
 </style>
